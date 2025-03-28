@@ -1,4 +1,4 @@
-package aisco.product.mariberbagi;
+package aisco.product.marimenyumbang;
 
 import aisco.program.ProgramFactory;
 import aisco.program.core.Program;
@@ -10,12 +10,11 @@ import aisco.donation.core.Donation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MariBerbagi {
+public class MariMenyumbang {
 	private static final int INDEX_LIBRARY = 0;
 	private static final int INDEX_BOOK = 1;
 
 	private static FinancialReport income1;
-	private static FinancialReport expense1;
 	
 	 public static List<Program> addProgram() {    	
 	        // TODO: Create necessary feature objects for the program
@@ -63,7 +62,7 @@ public class MariBerbagi {
 	    					programs.get(INDEX_LIBRARY),
 	    					"11000"	
 	    			),
-	    			"Transfer"
+	    			"QRIS"
 	    	);
 	    	incomes.add(income1);
 	    	incomes.add(FinancialReportFactory.createFinancialReport(
@@ -77,45 +76,15 @@ public class MariBerbagi {
 	    					programs.get(INDEX_BOOK),
 	    					"11000"
 	    			),
-	    			"Cash"
+	    			"QRIS"
 	    	));
 	    	
 	    	
 	    	return incomes;
 	     }
-	 public static List<FinancialReport> addExpense(List<Program> programs){
-	    	List<FinancialReport> expenses = new ArrayList<>();
-	    	expense1 = FinancialReportFactory.createFinancialReport(
-	    			"aisco.financialreport.expense.FinancialReportImpl",
-	    			FinancialReportFactory.createFinancialReport(
-	    			"aisco.financialreport.core.FinancialReportImpl",
-	    			"10",
-	    			"23-10-2019",
-	    			1000000,
-	    			"Buy Cement",
-	    			programs.get(INDEX_LIBRARY),
-	    			"41000"
-	    			)
-	    	);
-	    	expenses.add(expense1);
-	    	expenses.add(FinancialReportFactory.createFinancialReport(
-	    			"aisco.financialreport.expense.FinancialReportImpl",
-	    			FinancialReportFactory.createFinancialReport(
-	    					"aisco.financialreport.core.FinancialReportImpl",
-	    					"20",
-	    					"24-10-2019",
-	    					1500000,
-	    					"Buy Bookcase",
-	    					programs.get(INDEX_BOOK),
-	    					"410"
-	    			)
-	    	));
-	    	
-	    	return expenses;
-	     }
-	
+
      public static void addDonation() {
-    	 Donation donate = DonationFactory.createDonation("aisco.donation.transferbank.DonationImpl");
+    	 Donation donate = DonationFactory.createDonation("aisco.donation.paymentqr.DonationImpl");
     	 donate.addDonation();
     	 donate.getDonation();
      }
@@ -136,14 +105,8 @@ public class MariBerbagi {
    	 System.out.println(incomes);
    	 int totalincome = ((aisco.financialreport.income.FinancialReportImpl)income1).total(incomes);
    	 
-   	 List<FinancialReport> expenses = addExpense(programs);
-   	 expense1.printHeader();
-   	 System.out.println(expenses);
-   	 int totalexpense = ((aisco.financialreport.expense.FinancialReportImpl)expense1).total(expenses);
-   	 
    	 addDonation();
-   	 int balance = totalincome-totalexpense;
-   	 System.out.println("Balance: " + balance);
+   	 System.out.println("income: " + totalincome);
 
         
     }

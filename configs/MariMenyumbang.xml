@@ -6,11 +6,11 @@
 	<feature name="Operational"/>
 	<feature automatic="selected" name="FinancialReport"/>
 	<feature automatic="selected" name="Income"/>
-	<feature manual="selected" name="Expense"/>
+	<feature name="Expense"/>
 	<feature automatic="selected" manual="selected" name="Donation"/>
 	<feature automatic="unselected" name="DirectPayment"/>
 	<feature automatic="selected" manual="selected" name="PaymentGateway"/>
-	<feature manual="selected" name="TransferBank"/>
-	<feature name="PaymentQR"/>
+	<feature automatic="unselected" name="TransferBank"/>
+	<feature manual="selected" name="PaymentQR"/>
 	<feature automatic="unselected" name="Credit"/>
 </configuration>

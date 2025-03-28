@@ -9,7 +9,5 @@
   "DirectPayment": ["aisco.donation.core"],
   "PaymentGateway": ["aisco.donation.pgateway"],
   "TransferBank": ["aisco.donation.transferbank"],
-  "Ewallet": [
-		"aisco.donation.ewallet"
-	]
+  "PaymentQR": ["aisco.donation.paymentqr"]
 }
